@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CI — Frequently Asked Questions</title>
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700&family=Barlow:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --pce-blue: #2C4EA6;
+      --pce-dark-navy: #002D5A;
+      --pce-steel-grey: #4A5B6B;
+      --pce-concrete-light: #E4E6E8;
+      --pce-offsite-white: #F7F8F9;
+      --pce-amber: #E87722;
+      --pce-white: #FFFFFF;
+      --color-text: #1A2633;
+      --font-display: 'Barlow Condensed', sans-serif;
+      --font-body: 'Barlow', sans-serif;
+      --shadow-card: 0 2px 12px rgba(0, 45, 90, 0.08);
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: var(--font-body);
+      background: var(--pce-offsite-white);
+      color: var(--color-text);
+      padding: 40px 24px;
+    }
+
+    .faq-wrapper {
+      max-width: 820px;
+      margin: 0 auto;
+    }
+
+    .faq-header {
+      margin-bottom: 32px;
+    }
+
+    .faq-header h2 {
+      font-family: var(--font-display);
+      font-size: 32px;
+      font-weight: 700;
+      color: var(--pce-blue);
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+      margin-bottom: 8px;
+    }
+
+    .faq-header p {
+      font-size: 15px;
+      color: var(--pce-steel-grey);
+      line-height: 1.5;
+    }
+
+    .faq-header-rule {
+      width: 48px;
+      height: 3px;
+      background: var(--pce-amber);
+      margin: 12px 0 16px;
+    }
+
+    .faq-item {
+      background: var(--pce-white);
+      border: 1px solid var(--pce-concrete-light);
+      border-left: 3px solid transparent;
+      margin-bottom: 8px;
+      box-shadow: var(--shadow-card);
+      transition: border-left-color 0.2s ease;
+      border-radius: 2px;
+    }
+
+    .faq-item.open {
+      border-left-color: var(--pce-blue);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 20px;
+      text-align: left;
+      gap: 16px;
+    }
+
+    .faq-question:focus-visible {
+      outline: 2px solid var(--pce-amber);
+      outline-offset: -2px;
+    }
+
+    .faq-question-text {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 600;
+      color: var(--color-text);
+      line-height: 1.4;
+    }
+
+    .faq-item.open .faq-question-text {
+      color: var(--pce-blue);
+    }
+
+    .faq-icon {
+      flex-shrink: 0;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
+      background: var(--pce-concrete-light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.2s ease, transform 0.25s ease;
+    }
+
+    .faq-item.open .faq-icon {
+      background: var(--pce-blue);
+      transform: rotate(45deg);
+    }
+
+    .faq-icon svg {
+      width: 12px;
+      height: 12px;
+      stroke: var(--pce-steel-grey);
+      transition: stroke 0.2s ease;
+    }
+
+    .faq-item.open .faq-icon svg {
+      stroke: var(--pce-white);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.2s ease;
+    }
+
+    .faq-answer-inner {
+      padding: 0 20px 20px 20px;
+      font-size: 15px;
+      line-height: 1.65;
+      color: var(--pce-steel-grey);
+      border-top: 1px solid var(--pce-concrete-light);
+      padding-top: 16px;
+    }
+
+    .faq-answer-inner strong {
+      color: var(--color-text);
+    }
+
+    .faq-footer {
+      margin-top: 32px;
+      padding: 20px 24px;
+      background: var(--pce-blue);
+      color: var(--pce-white);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      border-radius: 2px;
+    }
+
+    .faq-footer p {
+      font-size: 14px;
+      opacity: 0.9;
+    }
+
+    .faq-footer strong {
+      font-weight: 600;
+      opacity: 1;
+    }
+
+    .faq-footer a {
+      display: inline-block;
+      background: var(--pce-amber);
+      color: var(--pce-white);
+      font-family: var(--font-body);
+      font-weight: 600;
+      font-size: 13px;
+      padding: 8px 18px;
+      text-decoration: none;
+      border-radius: 2px;
+      transition: background 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .faq-footer a:hover {
+      background: #CF6415;
+    }
+  </style>
+</head>
+<body>
+  <div class="faq-wrapper">
+
+    <div class="faq-header">
+      <h2>Frequently Asked Questions</h2>
+      <div class="faq-header-rule"></div>
+      <p>Everything you need to know about submitting and tracking continuous improvement ideas at PCE.</p>
+    </div>
+
+    <div class="faq-list" id="faqList"></div>
+
+    <div class="faq-footer">
+      <p>Still got a question? <strong>Get in touch directly.</strong></p>
+      <a href="mailto:patrik.marton@pceltd.co.uk">Contact the CI Team</a>
+    </div>
+
+  </div>
+
+  <script>
+    const faqs = [
+      {
+        q: "What happens after I submit an idea?",
+        a: "Your submission goes straight to the CI team for review. You'll receive a confirmation and can track the status of your idea on the Notion board. Nothing disappears into a void — every submission is logged and reviewed."
+      },
+      {
+        q: "Who reviews the submissions?",
+        a: "The CI team reviews all submissions, typically alongside relevant department heads where the idea applies. For operational changes, the relevant team lead will be looped in before any decision is made."
+      },
+      {
+        q: "How long does it take to get a decision?",
+        a: "We aim to give initial feedback within <strong>two weeks</strong> of submission. More complex ideas that require further investigation may take longer, but you'll be kept in the loop either way."
+      },
+      {
+        q: "Can I submit anonymously?",
+        a: "Yes. The submission form includes an option to submit without your name attached. Anonymous submissions are reviewed exactly the same way - the idea matters, not who sent it."
+      },
+      {
+        q: "What kind of ideas are you looking for?",
+        a: "Anything that makes PCE better - safer, more efficient, less wasteful, or a better place to work. There's no idea too small. You don't need a fully formed solution either; spotting the problem is a great start."
+      },
+      {
+        q: "What if my idea doesn't get taken forward?",
+        a: "You'll receive a clear explanation of why - whether that's timing, resource constraints, or it's already in progress elsewhere. 'Not right now' isn't the same as 'no', and the idea stays on record for future consideration."
+      },
+      {
+        q: "Can I see other people's suggestions?",
+        a: "Yes! You can view all suggestions that have been submitted by clicking on the See it Share it Shape it Board button on the page  "
+      },
+      {
+        q: "Can I update or add to a submission after I've sent it?",
+        a: "Yes — reach out to the CI team directly and reference your submission. If you've thought of something relevant to add, they'll update the record. The email link below is the quickest route."
+      }
+    ];
+
+    const list = document.getElementById('faqList');
+
+    faqs.forEach((faq, i) => {
+      const item = document.createElement('div');
+      item.className = 'faq-item';
+
+      item.innerHTML = `
+        <button class="faq-question" aria-expanded="false" aria-controls="answer-${i}">
+          <span class="faq-question-text">${faq.q}</span>
+          <span class="faq-icon">
+            <svg viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" stroke-width="2" stroke-linecap="square">
+              <line x1="6" y1="1" x2="6" y2="11"/>
+              <line x1="1" y1="6" x2="11" y2="6"/>
+            </svg>
+          </span>
+        </button>
+        <div class="faq-answer" id="answer-${i}" role="region">
+          <div class="faq-answer-inner">${faq.a}</div>
+        </div>
+      `;
+
+      const btn = item.querySelector('.faq-question');
+      const answer = item.querySelector('.faq-answer');
+      const inner = item.querySelector('.faq-answer-inner');
+
+      btn.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+
+        // Close all
+        document.querySelectorAll('.faq-item.open').forEach(openItem => {
+          openItem.classList.remove('open');
+          openItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+          openItem.querySelector('.faq-answer').style.maxHeight = null;
+        });
+
+        // Open clicked if it was closed
+        if (!isOpen) {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+          answer.style.maxHeight = inner.scrollHeight + 36 + 'px';
+        }
+      });
+
+      list.appendChild(item);
+    });
+  </script>
+</body>
+</html>
